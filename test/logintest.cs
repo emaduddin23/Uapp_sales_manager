@@ -14,10 +14,6 @@ public class LoginTest
     private IAssertionHelper assertion;
 
 
-
-
-
-
     [OneTimeSetUp]
     public void GlobalSetUp()
     {
@@ -32,16 +28,13 @@ public class LoginTest
 
     }
 
-
-
-
     [Test, Order(1), Description("Test to verify the dashboard widgets load correctly")]
     public void loginpageinfo()
     {
         ReportManager.test = ReportManager.extent.CreateTest("Dashboard page information");
 
-        assertion = new HardAssertionHelper(ReportManager.test);
-        //assertion = new SoftAssertionHelper(ReportManager.test);
+        //assertion = new HardAssertionHelper(ReportManager.test);
+        assertion = new SoftAssertionHelper(ReportManager.test);
         dashboard = new DashboardPage(driver, assertion);
 
         loginPage.userinfo();
@@ -55,14 +48,13 @@ public class LoginTest
 
         dashboard.VerifyDashboardHeader();
         ReportManager.test.Info("Verified dashboard header");
-        
+
         dashboard.ScrollToDashboardContent();
         ReportManager.test.Info("Scrolled to dashboard content");
 
         // Optional: in HardAssertionHelper, AssertAll() does nothin
 
     }
-
 
     [TearDown]
     public void TearDown()

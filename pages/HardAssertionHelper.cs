@@ -5,7 +5,7 @@ namespace sales_manager.pages;
 
 
 
-    public class HardAssertionHelper: IAssertionHelper
+public class HardAssertionHelper : IAssertionHelper
 {
     private readonly ExtentTest test;
     public HardAssertionHelper(ExtentTest extentTest)
