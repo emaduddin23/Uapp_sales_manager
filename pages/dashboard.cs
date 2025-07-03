@@ -31,25 +31,28 @@ namespace sales_manager.pages
         {
             helper.Click(DashboardHeader);
             helper.WaitForPageLoad(); // Wait for the page to load after clicking the dashboard header  
-            scrollHelper.ScrollBy(0, 2000); // Scroll to the bottom of the page
-            helper.WaitForPageLoad(); // Wait for the page to load after scrolling
+                                      // Wait for the page to load after scrolling
         }
         public void VerifyDashboardHeader()
         {
 
             {
-                string expectedHeader = "Hello, Jessica Rosario!";
+                string expectedHeader = "Hello, Jessica Rosari!";
                 string actualHeader = helper.GetText(DashboardContent);
+
                 assertion.AssertEquals(actualHeader, expectedHeader, "Dashboard header should be matched");
                 // Additional checks can be added here
                 // For example, checking if the dashboard contains specific elements or data
                 // softAssertionHelper.AssertTrue(helper.IsElementPresent(By.CssSelector(".some-dashboard-element")), "Dashboard should contain specific element");
             }
 
+        }
 
-
-
-
+        public void ScrollToDashboardContent()
+        {
+            scrollHelper.ScrollBy(0, 2000); // Scroll to the bottom of the page
+            helper.WaitForPageLoad();
+            // Wait for the page to load after scrolling
         }
     }
 }

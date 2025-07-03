@@ -40,8 +40,8 @@ public class LoginTest
     {
         ReportManager.test = ReportManager.extent.CreateTest("Dashboard page information");
 
-        // assertion = new HardAssertionHelper(ReportManager.test);
-        assertion = new SoftAssertionHelper(ReportManager.test);
+        assertion = new HardAssertionHelper(ReportManager.test);
+        //assertion = new SoftAssertionHelper(ReportManager.test);
         dashboard = new DashboardPage(driver, assertion);
 
         loginPage.userinfo();
@@ -55,6 +55,9 @@ public class LoginTest
 
         dashboard.VerifyDashboardHeader();
         ReportManager.test.Info("Verified dashboard header");
+        
+        dashboard.ScrollToDashboardContent();
+        ReportManager.test.Info("Scrolled to dashboard content");
 
         // Optional: in HardAssertionHelper, AssertAll() does nothin
 
