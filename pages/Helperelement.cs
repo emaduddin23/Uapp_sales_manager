@@ -48,6 +48,26 @@ namespace sales_manager.pages
             var element = wait.Until(ExpectedConditions.ElementIsVisible(locator));
             return element.GetAttribute(attributeName);
         }
+        // public void SelectCustomDropdown(By dropdownToggle, string optionText)
+        // {
+        //     // Click the dropdown to open it
+        //     var toggle = wait.Until(ExpectedConditions.ElementToBeClickable(dropdownToggle));
+        //     toggle.Click();
+
+        //     // Build dynamic XPath for the visible option text
+        //     var option = wait.Until(ExpectedConditions.ElementIsVisible(
+        //         By.XPath($"//*[contains(text(),'{optionText}')]")));
+        //     option.Click();
+        // }
+        public void ScrollAndClick(By locator)
+        {
+            var element = wait.Until(ExpectedConditions.ElementIsVisible(locator));
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+            wait.Until(ExpectedConditions.ElementToBeClickable(locator)).Click();
+        }
+
+
+
 
     }
 }
