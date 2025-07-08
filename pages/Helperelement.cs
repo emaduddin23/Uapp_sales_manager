@@ -73,12 +73,24 @@ namespace sales_manager.pages
             Actions actions = new Actions(driver);
             actions.MoveToElement(element).Perform();
         }
-        public void ScrollToElementjs(By locator)
-        {
-            var element = wait.Until(ExpectedConditions.ElementIsVisible(locator));
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            js.ExecuteScript("arguments[0].scrollIntoView({ behavior: 'auto', block: 'center' });", element);
-        }
+        public void ScrollToElementJs(By locator)
+{
+    try
+    {
+        var element = wait.Until(ExpectedConditions.ElementExists(locator));
+
+        ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+
+        // Optional: wait until visible after scroll
+        wait.Until(ExpectedConditions.ElementIsVisible(locator));
+    }
+    catch (WebDriverTimeoutException)
+    {
+        Console.WriteLine("Element not found for scrolling: " + locator);
+        throw;
+    }
+}
+
 
     }
 }

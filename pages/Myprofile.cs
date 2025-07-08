@@ -17,7 +17,7 @@ namespace sales_manager.pages
         private readonly IWebDriver driver;
         private readonly Helperelement helper;
         public ScrollHelper scrollHelper;
-        private readonly FileUploader fileUploader;
+        //private readonly FileUploader fileUploader;
 
 
         public Myprofile(IWebDriver driver)
@@ -25,7 +25,7 @@ namespace sales_manager.pages
             this.driver = driver;
             helper = new Helperelement(driver);
             scrollHelper = new ScrollHelper(driver);
-            fileUploader = new FileUploader(driver);
+            //fileUploader = new FileUploader(driver);
 
         }
         // Locators
@@ -41,7 +41,7 @@ namespace sales_manager.pages
         private By savenext2 => By.XPath("//button[normalize-space()='Save and Next']");
         private By changecountry => By.CssSelector(".css-b62m3t-container > .css-13cymwt-control");
 
-        private By changeCountryDropdown => By.XPath("//div[contains(text(),'Bahrain')]"); // Assuming this is the correct locator for the country dropdown
+        private By changeCountryDropdown => By.XPath("//div[contains(text(),'Australia')]"); // Assuming this is the correct locator for the country dropdown
 
         private By savenext3 => By.XPath("//button[normalize-space()='Save and Next']");
 
@@ -50,7 +50,9 @@ namespace sales_manager.pages
         private By changecountrydrop => By.XPath("//div[contains(text(),'Algeria')]"); // Assuming this is the correct locator for the change country dropdown
 
         private By savenext4 => By.XPath("//button[normalize-space()='Save and Next']");
-        private By myfileinput => By.XPath("//label[@for='inputImgId/Passport']//span[@type='button'][normalize-space()='Upload']");
+        private By myfileinput => By.XPath("//label[@for='inputImgId/Passport']"); // Assuming this is the correct locator for the file input
+        // private By uploadlabel => By.XPath("//label[@for='inputImgId/Passport']");
+        private By save => By.XPath("//button[normalize-space()='Save']");
         public void ClickMyProfile()
         {
             helper.Click(myprofileLink);
@@ -61,33 +63,41 @@ namespace sales_manager.pages
             helper.WaitForPageLoad();
             helper.Click(savenext2);
             helper.WaitForPageLoad();
+            helper.Click(savenext3);
+            helper.WaitForPageLoad();
+            helper.Click(savenext4);
+            helper.WaitForPageLoad();
         }
 
         public void contactinfo()
         {
             helper.Click(changecountry);
             helper.WaitForPageLoad();
-            helper.ScrollToElementjs(changeCountryDropdown);
+            helper.ScrollToElementJs(changeCountryDropdown);
             helper.WaitForPageLoad();
             helper.Click(changeCountryDropdown);
             helper.WaitForPageLoad();
             helper.Click(savenext3);
             helper.WaitForPageLoad();
             helper.Click(changeCountryInput);
-            helper.WaitForPageLoad();
-            helper.ScrollToElementjs(changecountrydrop);
+            // helper.WaitForPageLoad();
+            helper.ScrollToElementJs(changecountrydrop);
             helper.WaitForPageLoad();
             helper.Click(savenext4);
             helper.WaitForPageLoad();
 
         }
 
-        public void UploadFile(string filePath)
+        public void UploadFile()
         {
-            helper.Click(myfileinput);
-            helper.WaitForPageLoad();
-            fileUploader.UploadFile(myfileinput, filePath);
-            helper.WaitForPageLoad();
+            // helper.Click(myfileinput);
+            // helper.WaitForPageLoad();
+            // fileUploader.UploadFile(myfileinput, filePath);
+            // helper.WaitForPageLoad();
+            // helper.Click(save);
+            // helper.WaitForPageLoad();
+            helper.Type(myfileinput, "@C:\\Users\\Bluebay IT Limited\\Downloads\\profile.png");
+
         }
 
 
