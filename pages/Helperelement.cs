@@ -7,6 +7,7 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 using System.Threading;
+using OpenQA.Selenium.Interactions;
 
 namespace sales_manager.pages
 {
@@ -59,15 +60,25 @@ namespace sales_manager.pages
         //         By.XPath($"//*[contains(text(),'{optionText}')]")));
         //     option.Click();
         // }
-        public void ScrollAndClick(By locator)
+        // public void ScrollAndClick(By locator)
+        // {
+        //     var element = wait.Until(ExpectedConditions.ElementIsVisible(locator));
+        //     ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+        //     wait.Until(ExpectedConditions.ElementToBeClickable(locator)).Click();
+        // }
+
+        public void ScrollToElement(By locator)
         {
             var element = wait.Until(ExpectedConditions.ElementIsVisible(locator));
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
-            wait.Until(ExpectedConditions.ElementToBeClickable(locator)).Click();
+            Actions actions = new Actions(driver);
+            actions.MoveToElement(element).Perform();
         }
-
-
-
+        public void ScrollToElementjs(By locator)
+        {
+            var element = wait.Until(ExpectedConditions.ElementIsVisible(locator));
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].scrollIntoView({ behavior: 'auto', block: 'center' });", element);
+        }
 
     }
 }

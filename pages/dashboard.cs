@@ -26,7 +26,7 @@ namespace sales_manager.pages
 
         // Locators
         private By DashboardHeader => By.CssSelector(".nav-item.uapp-nav-item.active");
-        private By DashboardContent => By.XPath("//span[normalize-space()='Hello, Jessica Rosario!']");
+        public By DashboardContent => By.XPath("//span[normalize-space()='Hello, Jessica Rosario!']");
         public void dashboardinfo()
         {
             helper.Click(DashboardHeader);

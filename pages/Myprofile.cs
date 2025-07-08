@@ -41,7 +41,7 @@ namespace sales_manager.pages
         private By savenext2 => By.XPath("//button[normalize-space()='Save and Next']");
         private By changecountry => By.CssSelector(".css-b62m3t-container > .css-13cymwt-control");
 
-        private By changeCountryDropdown => By.XPath("//div[@class='css-1dimb5e-singleValue' and text()='Australia']"); // Assuming this is the correct locator for the country dropdown
+        private By changeCountryDropdown => By.XPath("//div[contains(text(),'Bahrain')]"); // Assuming this is the correct locator for the country dropdown
 
         private By savenext3 => By.XPath("//button[normalize-space()='Save and Next']");
 
@@ -67,25 +67,18 @@ namespace sales_manager.pages
         {
             helper.Click(changecountry);
             helper.WaitForPageLoad();
-            helper.ScrollAndClick(changeCountryDropdown);
+            helper.ScrollToElementjs(changeCountryDropdown);
             helper.WaitForPageLoad();
-            // helper.SelectCustomDropdown(changeCountryDropdown, "Australia");
+            helper.Click(changeCountryDropdown);
             helper.WaitForPageLoad();
-            // helper.Click(changecountry);
-            // helper.WaitForPageLoad();
-
-            // helper.Click(changeCountryDropdown);
-            // helper.WaitForPageLoad();
-
             helper.Click(savenext3);
             helper.WaitForPageLoad();
-
-            // helper.Click(changeCountryInput);
-            // helper.WaitForPageLoad();
-            // helper.Click(changecountrydrop);
-            // helper.WaitForPageLoad();
-            // helper.Click(savenext4);
-            // helper.WaitForPageLoad();
+            helper.Click(changeCountryInput);
+            helper.WaitForPageLoad();
+            helper.ScrollToElementjs(changecountrydrop);
+            helper.WaitForPageLoad();
+            helper.Click(savenext4);
+            helper.WaitForPageLoad();
 
         }
 
