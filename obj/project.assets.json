@@ -2250,19 +2250,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bluebay IT Limited\\.nuget\\packages\\": {}
+    "C:\\Users\\EMAD\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Uapp_sales_manager\\Uapp_sales_manager.csproj",
+      "projectUniqueName": "j:\\Uapp_sales_manager\\Uapp_sales_manager.csproj",
       "projectName": "Uapp_sales_manager",
-      "projectPath": "D:\\Uapp_sales_manager\\Uapp_sales_manager.csproj",
-      "packagesPath": "C:\\Users\\Bluebay IT Limited\\.nuget\\packages\\",
-      "outputPath": "D:\\Uapp_sales_manager\\obj\\",
+      "projectPath": "j:\\Uapp_sales_manager\\Uapp_sales_manager.csproj",
+      "packagesPath": "C:\\Users\\EMAD\\.nuget\\packages\\",
+      "outputPath": "j:\\Uapp_sales_manager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Bluebay IT Limited\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\EMAD\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -2344,7 +2344,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.411/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.314/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
