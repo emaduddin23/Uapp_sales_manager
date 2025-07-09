@@ -16,6 +16,7 @@ public class LoginTest
     private ScreenshotHelper screenshotHelper;
 
 
+
     [OneTimeSetUp]
     public void GlobalSetUp()
     {
@@ -29,6 +30,7 @@ public class LoginTest
         loginPage = new LoginPage(driver);
         myprofile = new Myprofile(driver);
         screenshotHelper = new ScreenshotHelper(driver);
+
 
 
     }
@@ -91,6 +93,8 @@ public class LoginTest
 
             myprofile.UploadFile();
             ReportManager.test.Info("Uploaded profile picture");
+
+
         }
         catch (Exception e)
         {

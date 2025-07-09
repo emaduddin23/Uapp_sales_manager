@@ -17,7 +17,7 @@ namespace sales_manager.pages
         private readonly IWebDriver driver;
         private readonly Helperelement helper;
         public ScrollHelper scrollHelper;
-        //private readonly FileUploader fileUploader;
+        public readonly FileUploader fileUploader;
 
 
         public Myprofile(IWebDriver driver)
@@ -25,7 +25,7 @@ namespace sales_manager.pages
             this.driver = driver;
             helper = new Helperelement(driver);
             scrollHelper = new ScrollHelper(driver);
-            //fileUploader = new FileUploader(driver);
+            fileUploader = new FileUploader(driver);
 
         }
         // Locators
@@ -50,7 +50,7 @@ namespace sales_manager.pages
         private By changecountrydrop => By.XPath("//div[contains(text(),'Algeria')]"); // Assuming this is the correct locator for the change country dropdown
 
         private By savenext4 => By.XPath("//button[normalize-space()='Save and Next']");
-        private By myfileinput => By.XPath("//label[@for='inputImgId/Passport']"); // Assuming this is the correct locator for the file input
+        private By myfileinput => By.XPath("//input[@id='inputImgId/Passport']"); // Assuming this is the correct locator for the file input
         // private By uploadlabel => By.XPath("//label[@for='inputImgId/Passport']");
         private By save => By.XPath("//button[normalize-space()='Save']");
         public void ClickMyProfile()
@@ -86,18 +86,17 @@ namespace sales_manager.pages
             helper.Click(savenext4);
             helper.WaitForPageLoad();
 
+
+
+
         }
 
         public void UploadFile()
         {
-            // helper.Click(myfileinput);
-            // helper.WaitForPageLoad();
-            // fileUploader.UploadFile(myfileinput, filePath);
-            // helper.WaitForPageLoad();
-            // helper.Click(save);
-            // helper.WaitForPageLoad();
-            helper.Type(myfileinput, "@C:\\Users\\Bluebay IT Limited\\Downloads\\profile.png");
-
+            fileUploader.UploadFile(myfileinput, "C:\\Users\\EMAD\\Downloads\\random.jpeg");
+            helper.WaitForPageLoad();
+            helper.Click(save);
+            helper.WaitForPageLoad();
         }
 
 

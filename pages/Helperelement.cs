@@ -34,11 +34,26 @@ namespace sales_manager.pages
 
         public void Type(By locator, string text)
         {
-            var element = wait.Until(ExpectedConditions.ElementIsVisible(locator));
-            // element.Clear();
-            element.SendKeys(text);
+            wait.Until(ExpectedConditions.ElementExists(locator)).SendKeys(text);
 
+    
+            
         }
+
+        public void fileuploadnon(By locator, string text)
+        {
+            var element = wait.Until(ExpectedConditions.ElementExists(locator));
+
+            // Remove "d-none" class to make it visible
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].classList.remove('d-none');", element);
+
+            element.SendKeys(text);
+        }
+            // element.Clear();
+
+
+
+
         public string GetText(By locator)
         {
             var element = wait.Until(ExpectedConditions.ElementIsVisible(locator));
@@ -74,22 +89,22 @@ namespace sales_manager.pages
             actions.MoveToElement(element).Perform();
         }
         public void ScrollToElementJs(By locator)
-{
-    try
-    {
-        var element = wait.Until(ExpectedConditions.ElementExists(locator));
+        {
+            try
+            {
+                var element = wait.Until(ExpectedConditions.ElementExists(locator));
 
-        ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+                ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
 
-        // Optional: wait until visible after scroll
-        wait.Until(ExpectedConditions.ElementIsVisible(locator));
-    }
-    catch (WebDriverTimeoutException)
-    {
-        Console.WriteLine("Element not found for scrolling: " + locator);
-        throw;
-    }
-}
+                // Optional: wait until visible after scroll
+                wait.Until(ExpectedConditions.ElementIsVisible(locator));
+            }
+            catch (WebDriverTimeoutException)
+            {
+                Console.WriteLine("Element not found for scrolling: " + locator);
+                throw;
+            }
+        }
 
 
     }
