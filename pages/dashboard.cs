@@ -10,14 +10,14 @@ namespace sales_manager.pages
 {
     public class DashboardPage
     {
-        private readonly IWebDriver driver;
+       // private readonly IWebDriver driver;
 
         private readonly ScrollHelper scrollHelper;
         private readonly Helperelement helper;
         private readonly IAssertionHelper assertion;
         public DashboardPage(IWebDriver driver, IAssertionHelper assertionHelper)
         {
-            this.driver = driver;
+            //this.driver = driver;
             helper = new Helperelement(driver);
             scrollHelper = new ScrollHelper(driver);
             this.assertion = assertionHelper;

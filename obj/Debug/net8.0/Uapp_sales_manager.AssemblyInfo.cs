@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Uapp_sales_manager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2269ad106f8054fc0d86c2f3c8dbe1adac4c7130")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87b2e65e5771a0a30f10a81719cc9f02b76a9cd2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Uapp_sales_manager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Uapp_sales_manager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

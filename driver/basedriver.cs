@@ -28,8 +28,8 @@ public static class DriverFactory
     public static IWebDriver CreateDriver()
     {
 
-        driver = new ChromeDriver(); // or new FirefoxDriver();
-        //driver = new FirefoxDriver(); // or new ChromeDriver();
+        //driver = new ChromeDriver(); // or new FirefoxDriver();
+        driver = new FirefoxDriver(); // or new ChromeDriver();
         driver.Manage().Window.Maximize();
         driver.Navigate().GoToUrl("http://test.uapp.uk/");
 
@@ -37,4 +37,5 @@ public static class DriverFactory
         wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
         return driver;
     }
+
 }

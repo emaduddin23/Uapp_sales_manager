@@ -21,6 +21,7 @@ namespace sales_manager.pages
             this.driver = driver;
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
         }
+        
 
         public void WaitForPageLoad()
         {
@@ -36,8 +37,8 @@ namespace sales_manager.pages
         {
             wait.Until(ExpectedConditions.ElementExists(locator)).SendKeys(text);
 
-    
-            
+
+
         }
 
         public void fileuploadnon(By locator, string text)
@@ -49,7 +50,7 @@ namespace sales_manager.pages
 
             element.SendKeys(text);
         }
-            // element.Clear();
+        // element.Clear();
 
 
 
@@ -105,6 +106,12 @@ namespace sales_manager.pages
                 throw;
             }
         }
+        // public static void Login(IWebDriver driver)
+        // {
+        //     driver.Navigate().GoToUrl("https://yourwebsite.com/login");
+        //     var loginPage = new LoginPage(driver);
+        //     loginPage.Login("yourUsername", "yourPassword");
+        // }
 
 
     }

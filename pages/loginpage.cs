@@ -10,7 +10,7 @@ public class LoginPage
     private readonly WebDriverWait wait;
     public LoginPage(IWebDriver driver)
     {
-        this.driver = driver;
+        //this.driver = driver;
         this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
         this.helper = new Helperelement(driver);
     }

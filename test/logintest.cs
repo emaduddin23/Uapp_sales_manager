@@ -1,19 +1,28 @@
 
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using sales_manager.pages;
 
 
-// [Parallelizable(ParallelScope.Self)]
+[Parallelizable(ParallelScope.Self)]
 [TestFixture]
-
 public class LoginTest
 {
     private IWebDriver driver;
     private LoginPage loginPage;
-    private DashboardPage dashboard;
+    //private DashboardPage dashboard;
     private IAssertionHelper assertion;
     private Myprofile myprofile;
     private ScreenshotHelper screenshotHelper;
+    private Staff staff;
+    private companion companion;
+
+    // private ThreadLocal<IWebDriver> _driver = new(() =>
+
+    //     new ChromeDriver() // or new FirefoxDriver()
+    // );
+
+    // public IWebDriver driver => _driver.Value;
 
 
 
@@ -22,15 +31,15 @@ public class LoginTest
     {
         ReportManager.SetupReport();
     }
-
     [SetUp]
     public void SetUp()
     {
-        driver = DriverFactory.CreateDriver();
+        //driver = DriverFactory.CreateDriver();
         loginPage = new LoginPage(driver);
         myprofile = new Myprofile(driver);
         screenshotHelper = new ScreenshotHelper(driver);
-
+        staff = new Staff(driver);
+        companion = new companion(driver);
 
 
     }
@@ -73,26 +82,34 @@ public class LoginTest
     //     // Optional: in HardAssertionHelper, AssertAll() does nothin
 
     // }
-    [Test, Order(2), Description("Test to verify the My Profile page functionality")]
+
+    [Test, Description("Test to verify the My Profile page functionality")]
     public void myprofileinfo()
     {
-        ReportManager.test = ReportManager.extent.CreateTest("My Profile Menu Information");
+        //ReportManager.test = ReportManager.extent.CreateTest("My Profile Menu Information");
         try
         {
             loginPage.userinfo();
-            ReportManager.test.Info("Entered user info");
+            // ReportManager.test.Info("Entered user info");
 
             loginPage.ClickLoginButton();
-            ReportManager.test.Info("Clicked login");
+            // ReportManager.test.Info("Clicked login");
+
+            //companion.ClickcompMenu();
+            //ReportManager.test.Info("Clicked on companion menu");
 
             myprofile.ClickMyProfile();
             ReportManager.test.Info("Clicked on My Profile");
 
-            // myprofile.contactinfo();
-            // ReportManager.test.Info("Clicked on Contact Info");
+            // // myprofile.contactinfo();
+            // // ReportManager.test.Info("Clicked on Contact Info");
 
-            myprofile.UploadFile();
-            ReportManager.test.Info("Uploaded profile picture");
+            // myprofile.UploadFile();
+            // ReportManager.test.Info("Uploaded profile picture");
+            // myprofile.tapimage();
+            // ReportManager.test.Info("Tapped on the profile image");
+            // staff.ClickStaffMenu();
+            // ReportManager.test.Info("Clicked on Staff Menu");
 
 
         }

@@ -51,7 +51,9 @@ namespace sales_manager.pages
 
         private By savenext4 => By.XPath("//button[normalize-space()='Save and Next']");
         private By myfileinput => By.XPath("//input[@id='inputImgId/Passport']"); // Assuming this is the correct locator for the file input
-        // private By uploadlabel => By.XPath("//label[@for='inputImgId/Passport']");
+                                                                                  // private By uploadlabel => By.XPath("//label[@for='inputImgId/Passport']");
+
+        private By taptheimage => By.XPath("//div[../@class='d-flex align-items-center justify-content-between'][2]"); // Assuming this is the correct locator for the image tap area
         private By save => By.XPath("//button[normalize-space()='Save']");
         public void ClickMyProfile()
         {
@@ -95,9 +97,14 @@ namespace sales_manager.pages
         {
             fileUploader.UploadFile(myfileinput, "C:\\Users\\EMAD\\Downloads\\random.jpeg");
             helper.WaitForPageLoad();
+            helper.Click(taptheimage);
+            helper.WaitForPageLoad();
             helper.Click(save);
             helper.WaitForPageLoad();
+            
         }
+
+        
 
 
         // public void SubmitPhoneNumber()
